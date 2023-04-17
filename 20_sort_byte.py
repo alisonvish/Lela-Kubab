@@ -19,3 +19,13 @@
 #   sort_bytes(4294967295), 4294967295
 #   sort_bytes(3735928559), 4024352429
 #   sort_bytes(19088743), 1732584193
+
+
+
+
+# Решение
+x = 3735928559
+x.to_bytes(4, byteorder = 'big')
+byte_val = b'\xde\xad\xbe\xef'
+int_val = int.from_bytes(byte_val, "big")
+print(int_val)
