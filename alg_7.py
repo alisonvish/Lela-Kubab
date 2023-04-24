@@ -14,9 +14,24 @@ lst = [3, 14, 1, 7, 9, 8, 11, 6, 4, 2]
 
 # Решение
 
-arr =  [3, 14, 1, 7, 9, 8, 11, 6, 4, 2]
+
+lst = sorted((3, 14, 1, 7, 9, 8, 11, 6, 4, 2))
  
-n = len(arr)
+n = len(lst) 
 print ("Sorted array is")
 for i in range(n):
-    print ("%d" %arr[i])
+    print ("%d" %(lst[i]))
+
+# Ответ
+
+Sorted array is
+1
+2
+3
+4
+6
+7
+8
+9
+11
+14
