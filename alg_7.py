@@ -19,19 +19,14 @@ def heapify(numbers, n, i):
     largest = i    # Initialize largest as root. (Инициализировать наибольший как root)
     l = 2 * i + 1   # left = 2*i + 1
     r = 2 * i + 2   # right = 2*i + 2
-
-
- # Проверяем существует ли левый дочерний элемент больший, чем корень
-
+  # Проверяем существует ли левый дочерний элемент 
     if l <= n and numbers[l] > numbers[largest]:
         largest = l
 
-    # Проверяем существует ли правый дочерний элемент больший, чем корень
+    # Проверяем существует ли правый дочерний элемент 
 
     if r <= n and numbers[largest] > numbers[r]:
         largest = r
-
-    # Заменяем корень, если нужно
     if largest == i:
           return
     else:
