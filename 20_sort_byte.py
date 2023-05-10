@@ -25,7 +25,14 @@
 
 # Решение
 x = 3735928559
-x.to_bytes(4, byteorder = 'big')
-byte_val = b'\xde\xad\xbe\xef'
-int_val = int.from_bytes(byte_val, "big")
+byte_val = x.to_bytes(4)  # превратили в байтовую строку
+byte_val_lst = list(byte_val)  # превратили в список кодов
+sort_byte_val = sorted(byte_val_lst)  # сортируем список кодов
+invert_byte_val = sort_byte_val[::-1]  # инвертируем список значений
+int_val = int.from_bytes(invert_byte_val, "big")
 print(int_val)
+
+# В результате твоего кода получалось исходное число(
+# Здесь записано все по шагам. Это можно конечно же сократить.
+# Следующим заданием будет записать решение в виде функции в сжатом виде.
+# Разметить новую функцию в отдельном файле и закинуть через git
