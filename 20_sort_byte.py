@@ -57,5 +57,34 @@ int_val = int.from_bytes(byte_val, "big")
 print(int_val)
 
 
+# решение функцией версия 1:
 
+def bytes(n):
+  x.to_bytes(4, byteorder = 'big')
+  int_val = int.from_bytes(byte_val, "big")
+  array = [n]
+  for i in array:
+    print(hex(n))
+print(bytes)
+n = 3735928559
+
+# ответ:
+<function bytes at 0x7f4891edfeb0>
+
+
+
+# решение версия 2:
+
+def bytes2(i):
+  bytes_list = i.to_bytes((i.bit_length() + 7) // 8, byteorder='big', signed=False)
+  bytes_list.sort(reverse=True)
+  sorted_num = int.from_bytes(bytes_list, byteorder='big', signed=False)
+  return sorted_num
+i = 3735928559
+print(bytes2)
+
+# ответ:
+<function bytes2 at 0x7f48638f45e0>
+  
+  
 
