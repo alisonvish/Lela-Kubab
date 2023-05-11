@@ -36,3 +36,26 @@ print(int_val)
 # Здесь записано все по шагам. Это можно конечно же сократить.
 # Следующим заданием будет записать решение в виде функции в сжатом виде.
 # Разметить новую функцию в отдельном файле и закинуть через git
+
+
+
+# Измененное решение кодом:
+
+
+x = 3735928559
+x.to_bytes(4, byteorder = 'big')
+int_val = int.from_bytes(byte_val, "big")
+print(int_val)
+
+
+array = [3735928559]
+for i in array:
+  print(hex(i))
+
+
+int_val = int.from_bytes(byte_val, "big")
+print(int_val)
+
+
+
+
