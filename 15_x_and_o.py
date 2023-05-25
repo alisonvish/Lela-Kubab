@@ -12,7 +12,7 @@
 
 
 
-# решение
+# решение кодом
 
 str = input()
 count_x = 0
@@ -27,5 +27,10 @@ if count_x == count_o:
 else:
     print(False)
     
+#   решение функцией 
     
+def xoteam(m):
+    return m.count('x') == m.count('o')
+print(xoteam('xoxo'))
+
  
