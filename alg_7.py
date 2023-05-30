@@ -15,42 +15,43 @@ lst = [3, 14, 1, 7, 9, 8, 11, 6, 4, 2]
 # Решение
 
 
-def heapify(numbers, n, i):
-    largest = i    # Initialize largest as root. (Инициализировать наибольший как root)
-    l = 2 * i + 1   # left = 2*i + 1
-    r = 2 * i + 2   # right = 2*i + 2
-  # Проверяем существует ли левый дочерний элемент 
-    if l <= n and numbers[l] > numbers[largest]:
-        largest = l
+def xoteam (lst, n, i):
+    largest = i  # Инициализируем наибольший элемент как корень
+    left = 2 * i + 1     # левый = 2*i + 1
+    right = 2 * i + 2     # правый = 2*i + 2
 
-    # Проверяем существует ли правый дочерний элемент 
+    # Проверяем существует ли левый дочерний элемент больший, чем корень
+    if left < n and lst[i] < lst[left]:
+        largest = left
 
-    if r <= n and numbers[largest] > numbers[r]:
-        largest = r
-    if largest == i:
-          return
-    else:
-        numbers[largest], numbers[i] = numbers[i], numbers[largest]
-        heapify(numbers , n, largest)
+    # Проверяем существует ли правый дочерний элемент больший, чем корень
+    if right < n and lst[largest] < lst[right]:
+        largest = right
 
+    # Меняем корень, если нужно
+    if largest != i:
+        lst[i], lst[largest] = lst[largest], lst[i]  # свап
 
+        # Применяем xoteam к корню.
+        xoteam(lst, n, largest)
 
-# Основная функция для сортировки 
-def build_max_heap(numbers):
-    middle = len(numbers) // 2
-    for idx in reversed(range(0, middle + 1)):
-	    heapify(numbers, idx, len(numbers) - 1)
+# Основная функция для сортировки массива заданного размера
+def xoxo(lst):
+    n = len(lst)
 
-def heap_sort(numbers):
-    build_max_heap(numbers)
-    for idx in reversed(range(0, len(numbers))):
-        numbers[0], numbers[idx] = numbers[idx], numbers[0]
-        heapify(numbers, 0, idx - 1)
-numbers = [3, 14, 1, 7, 9, 8, 11, 6, 4, 2]
-heap_sort(numbers)
-print(numbers)
+    # Построение max-heap.
+    for i in range(n, -1, -1):
+        xoteam(lst, n, i)
 
+    # Один за другим извлекаем элементы
+    for i in range(n - 1, 0, -1):
+        lst[i], lst[0] = lst[0], lst[i]   # свап
+        xoteam(lst, i, 0)
+    
+    return lst
+
+lst = [3, 14, 1, 7, 9, 8, 11, 6, 4, 2]
+print(xoxo(lst))
 
 #ответ
-
-[14, 1, 7, 9, 8, 11, 6, 4, 2, 3]
+# [1, 2, 3, 4, 6, 7, 8, 9, 11, 14]
