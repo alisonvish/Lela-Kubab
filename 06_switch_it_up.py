@@ -7,3 +7,25 @@
 
 # Использовать условный оператор if-elif-else нельзя!
 
+```
+words = ['Ноль', 'Один', 'Два', 'Три', 'Четыре', 'Пять', 'Шесть', 'Семь', 'Восемь', 'Девять']
+num = input('Введите число от 0 до 9: ')
+try:
+    print(words[int(num)])
+except (ValueError, IndexError):
+    print(None)
+```
+
+
+```
+def num_to_word(num):
+    words = ['Ноль', 'Один', 'Два', 'Три', 'Четыре', 'Пять', 'Шесть', 'Семь', 'Восемь', 'Девять']
+    try:
+        return words[num]
+    except IndexError:
+        return None
+
+
+get_input = int(input("Enter digit >"))
+print(num_to_word(get_input))
+```
